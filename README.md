@@ -4,8 +4,7 @@ Project ini adalah aplikasi sederhana yang dibuat menggunakan PHP Native dan Jav
 
 ## Fitur
 
-- Login & Register
-  = CRUD Data
+- Login & Register dengan CRUD Data
 - Session User
 
 ## Teknologi
@@ -16,10 +15,12 @@ Project ini adalah aplikasi sederhana yang dibuat menggunakan PHP Native dan Jav
 
 ## Tutorial Install
 
-1. Clone repo ini
-2. Import Database
-3. Jalankan di localhost
+1. git clone https://github.com/XevaID/phpformsimple.git
+2. Import Database ( RedQuiff/sysconnection/sqImport/datase.sql )
+3. Pastikan nama Databasenya: datase, dan Tablenya: users
+4. Pastikan Row Table ada 4: id (Primary, Auto_Increment), username (Var), pass (Var), email (Var)
+5. Website siap dijalankan!
 
 ## Author
 
-Fandhi AKA XevaID
+XevaID atau Fandhi
