@@ -25,26 +25,24 @@ async function login() {
     passwordin: datainputpassword,
   };
 
-  //mengirim paket input ke Authuserslogin
+  //mengirim paket input ke Authuserslogin /kode/RedQuiff/api/authusers/Authuserslogin.php
 
-  const optionsresponse = await fetch(
-    "/kode/RedQuiff/api/authusers/Authuserslogin.php",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      //diencode dalam bentuk JSON
-      body: JSON.stringify(datainrow),
+  const optionsresponse = await fetch("../api/authusers/Authuserslogin.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
     },
-  );
+    //diencode dalam bentuk JSON
+    body: JSON.stringify(datainrow),
+  });
 
   //menunggu data selesai diolah kemudian nilainya di decode dalam bentuk JSON
   const dataresponse = await optionsresponse.json();
   outtext.textContent = dataresponse.message;
 
   if (dataresponse.status === "success") {
-    window.location.href = "/kode/RedQuiff/index.php";
+    window.location.href = "../index.php";
+    //  /kode/RedQuiff/index.php
   }
 }
 
@@ -62,33 +60,31 @@ async function register() {
     confirmregpassword: datainputconfirmpasswordforreg,
   };
 
-  const sendregrequest = await fetch(
-    "/kode/RedQuiff/api/authusers/Authusersregister.php",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(regRawDataInput),
+  // /kode/RedQuiff/api/authusers/Authusersregister.php
+  const sendregrequest = await fetch("../api/authusers/Authusersregister.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
     },
-  );
+    body: JSON.stringify(regRawDataInput),
+  });
 
   const dataregresponse = await sendregrequest.json();
   outtext.textContent = dataregresponse.message;
   if (dataregresponse.status === "successCreate") {
-    window.location.href = "/kode/RedQuiff/index.php";
+    window.location.href = "../index.php";
+    // /kode/RedQuiff/index.php
   }
 }
 
-//function untuk cek apakah user memiliki SESSION atau tidak
+//function untuk cek apakah user memiliki SESSION atau tidak /kode/RedQuiff/api/authusers/checkAuth.php
 
 async function checkAuthuserlogandregis() {
-  const responseAuthlogreg = await fetch(
-    "/kode/RedQuiff/api/authusers/checkAuth.php",
-  );
+  const responseAuthlogreg = await fetch("../api/authusers/checkAuth.php");
   const dataAuthlogreg = await responseAuthlogreg.json();
   if (dataAuthlogreg.status === "success") {
-    window.location.href = "/kode/RedQuiff/index.php";
+    window.location.href = "../index.php";
+    // /kode/RedQuiff/index.php
   } else {
     return;
   }
